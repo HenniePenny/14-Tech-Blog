@@ -9,7 +9,7 @@ BlogPost.belongsTo(User, {
 
 //A user can have many blog posts
 User.hasMany(BlogPost, {
-  foreignKey: blogger_id,
+  foreignKey: "blogger_id",
   onDelete: "CASCADE",
 });
 
