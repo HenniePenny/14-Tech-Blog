@@ -24,18 +24,12 @@ BlogPost.init(
       references: {
         model: "user",
         key: "id",
-        unique: false,
       },
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "blogpost",
