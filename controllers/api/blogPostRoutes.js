@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { BlogPost, User, Comment } = require("../../models");
 
 //create blog post (post)
+//!use with middleware
 router.post("/", async (req, res) => {
   try {
     const newBlogPost = await BlogPost.create(req.body);
@@ -13,31 +14,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-//view all blog posts (get all) //!!but get all post for dashboard, i.e. written by a specific user
-router.get("/", async (req, res) => {
-  try {
-    const allBlogPostsID = await BlogPost.findAll();
-
-    return res.status(200).json(allBlogPostsID);
-  } catch (error) {
-    console.error(error);
-    return res.status(400).json(error);
-  }
-});
-
-//view one blog post (get one)
-router.get("/:id", async (req, res) => {
-  try {
-    const blogPost = await BlogPost.findByPk(req.params.id);
-
-    return res.status(200).json(blogPost);
-  } catch (error) {
-    console.error(error);
-    return res.status(400).json(error);
-  }
-});
-
 //edit blog post (put)
+//!use with middleware
 router.put("/:id", async (req, res) => {
   try {
     //takes in body that I want to update and an object where I want to update
@@ -55,6 +33,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //delete blog post (delete)
+//!use with middleware
 router.delete("/:id", async (req, res) => {
   try {
     const deletedBlogPost = await BlogPost.destroy({
