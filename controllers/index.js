@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { BlogPost, User, Comment } = require("../models");
+// const { BlogPost, User, Comment } = require("../models");
 
 const apiRoutes = require("./api");
 const homeRoutes = require("./homeRoutes");
