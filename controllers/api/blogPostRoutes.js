@@ -16,9 +16,9 @@ router.post("/", async (req, res) => {
 //view all blog posts (get all) //!!but get all post for dashboard, i.e. written by a specific user
 router.get("/", async (req, res) => {
   try {
-    const allBlogPosts = await BlogPost.findAll();
+    const allBlogPostsID = await BlogPost.findAll();
 
-    return res.status(200).json(allBlogPosts);
+    return res.status(200).json(allBlogPostsID);
   } catch (error) {
     console.error(error);
     return res.status(400).json(error);
